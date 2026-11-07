@@ -5,7 +5,7 @@
 課題であるチーズアカデミーのLPを再現したものです
 
 ## ③アプリのデプロイURL
-デプロイしている場合はURLを記入（任意）
+https://github.com/ukonsakon1973/kadai00-cheese-academy-main.git
 
 ## ④アプリのログイン用IDまたはPassword（ある場合）
 - ID: なし

@@ -1,0 +1,331 @@
+@charset "utf-8";
+
+/* ==========================================
+   リセット・共通設定
+   ========================================== */
+
+/* 
+  *（全称セレクター）：ページ内すべての要素を対象にします。
+  box-sizing: border-box; 幅や高さに「padding（内側余白）」や「border（線）」を含めて計算させる超重要設定です。
+*/
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: sans-serif;
+  color: #333;
+  line-height: 1.6; /* 行間を少し広げて読みやすくする */
+}
+
+/* 画像がはみ出さないように、親要素に合わせて縮むようにする設定 */
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: bottom;
+}
+
+/* リストの「・（黒丸）」を消す設定 */
+ul {
+  list-style: none;
+}
+
+/* リンクの下線を消し、文字の色を親要素から引き継ぐ設定 */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* サイト全体の最大幅を制限し、中央に配置するための枠組みクラス */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+html {
+  scroll-behavior: smooth; /* メニューをクリックしたときにスクロールがスムーズに動く */
+  scroll-padding-top: 80px; /* 固定ヘッダーに隠れないよう、上部に余白を確保する */
+}
+
+
+/* ==========================================
+   共通パーツ
+   ========================================== */
+.section {
+  padding: 60px 0; /* セクションごとの上下の余白 */
+}
+
+.bg-light {
+  background-color: white;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 24px;
+  color: #ffd700;
+  font-weight: bold;
+}
+
+.section-subtitle {
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 40px;
+}
+
+.btn-wrapper {
+  text-align: center;
+  margin-top: 30px;
+}
+
+/* 共通のボタンデザイン */
+.btn {
+  display: inline-block;
+  background-color: #ffd700;
+  color: #fff;
+  padding: 10px 60px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+
+/* ==========================================
+   ヘッダー
+   ========================================== */
+.header {
+  position: sticky; /* スクロールしても画面の上部にピタッとくっついて追従する */
+  top: 0;
+  background-color: #fff;
+  z-index: 100; /* 他の要素より手前に表示させるための重なり順の指定 */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* ほんのり影をつける */
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px 20px;
+  display: flex;                  /* 横並びにする */
+  justify-content: space-between; /* 左右の端にそれぞれ配置する */
+  align-items: center;            /* 縦方向の中心位置を揃える */
+}
+
+.logo a {
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 1.2;
+}
+
+/* メニューのリンクを横並びにする */
+.nav ul {
+  display: flex;
+  gap: 20px; /* メニューとメニューの間隔をあける */
+}
+
+.nav a {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+
+/* ==========================================
+   メインビジュアル
+   ========================================== */
+.main-visual {
+  position: relative; /* 子要素（中のテキスト）の絶対配置の基準にする */
+  width: 100%;
+  overflow: hidden;
+}
+
+.main-visual img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.main-visual-content {
+  position: absolute; /* 親（.main-visual）を基準にして自由に位置を動かす */
+  top: 50%;           /* 上から50%の位置 */
+  left: 50%;          /* 左から50%の位置 */
+  transform: translate(-50%, -50%); /* 自分自身のサイズの半分だけ戻して、正確に真ん中に合わせる */
+  text-align: center;
+  color: #fff;        
+  width: 100%;
+}
+
+.main-visual-content h2 {
+  font-size: 32px;
+  font-weight: bold;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5); /* 写真の上でも文字が読みやすくなるように影をつける */
+  margin-bottom: 10px;
+}
+
+.main-visual-content p {
+  font-size: 16px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+
+
+/* ==========================================
+   ABOUT
+   ========================================== */
+.about-text {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+/* 4枚の写真を横並びにする */
+.about-gallery {
+  display: flex;
+  gap: 10px;
+}
+
+.about-gallery img {
+  width: 25%; /* 4枚なので1枚あたり25%の幅にする */
+  object-fit: cover;
+}
+
+
+/* ==========================================
+   COURSE
+   ========================================== */
+.course-item {
+  display: flex; /* 写真とテキストを横並びにする */
+  margin-bottom: 40px;
+}
+
+/* クラスに reverse がついている場合は、横並びの左右を反転させる */
+.course-item.reverse {
+  flex-direction: row-reverse;
+}
+
+.course-img, .course-body {
+  width: 50%; /* 半分ずつの幅にする */
+}
+
+.course-body {
+  padding: 40px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.course-body h3 {
+  margin-bottom: 15px;
+  font-weight: bold; 
+}
+
+.course-body p {
+  font-weight: normal;
+}
+
+
+/* ==========================================
+   NEWS
+   ========================================== */
+.news-list {
+  display: flex;
+  justify-content: space-between; /* 3つのカードをきれいに等間隔に配置する */
+  gap: 20px;
+}
+
+.news-card {
+  width: 32%; /* 3つ並べるため、約32%の幅にする */
+}
+
+.news-date {
+  font-size: 12px;
+  color: #888;
+  margin: 10px 0 5px;
+}
+
+.news-text {
+  font-size: 14px;
+}
+
+
+/* ==========================================
+   ACCESS
+   ========================================== */
+.access-map {
+  width: 100%;
+  max-width: 800px; 
+  height: 400px;    
+  margin: 0 auto 30px auto; /* センター寄せと下部の余白 */
+}
+
+.access-map iframe {
+  width: 100%;
+  height: 100%; /* 親要素（.access-map）のサイズいっぱいに地図を広げる */
+}
+
+.access-table {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  border-collapse: collapse; /* 表の線をきれいに1本線にまとめる */
+}
+
+.access-table th, .access-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd; /* 下線のみを表示する */
+}
+
+.access-table th {
+  width: 30%;
+}
+
+
+/* ==========================================
+   CONTACT
+   ========================================== */
+.contact-desc {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+/* 入力欄（テキストボックス等）の幅を親いっぱいに広げる */
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+.checkbox-group label {
+  font-weight: normal;
+  display: inline-block;
+  margin-bottom: 5px;
+}
+
+
+/* ==========================================
+   フッター
+   ========================================== */
+.footer {
+  background-color: #707070;
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+  font-size: 12px;
+}
